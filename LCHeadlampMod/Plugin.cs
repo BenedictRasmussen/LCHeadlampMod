@@ -1,6 +1,7 @@
 ﻿using BepInEx;
 using BepInEx.Logging;
 using HarmonyLib;
+using LCHeadlampMod.Patches;
 
 namespace LCHeadlampMod
 {
@@ -27,7 +28,7 @@ namespace LCHeadlampMod
             log = BepInEx.Logging.Logger.CreateLogSource(modGUID);
             log.LogInfo($"{modName} loading complete");
 
-            harmony.PatchAll(typeof(Plugin));
+            harmony.PatchAll(typeof(PlayerControllerBPatch));
         }
     }
 }
